@@ -1,11 +1,15 @@
+/* eslint-disable import/extensions */
 import React from 'react';
-
 import ReactDOM from 'react-dom';
+import Map from './components/map.jsx';
 
 function App() {
   return (
-    <div>
-      <h1>Hello World</h1>
+    <div id="container">
+      <h1>What Are People Listening To in ?</h1>
+      <div id="map">
+        <Map />
+      </div>
     </div>
 
   );
