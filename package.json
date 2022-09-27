@@ -22,10 +22,15 @@
   },
   "homepage": "https://github.com/APolk10/MVP#readme",
   "dependencies": {
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "@mui/material": "^5.10.7",
     "express": "^4.18.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-simple-maps": "^3.0.0"
+    "react-simple-maps": "^3.0.0",
+    "styled-react-modal": "^3.0.1",
+    "uninstall": "^0.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.19.1",

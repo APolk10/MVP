@@ -5,10 +5,12 @@ import Map from './components/map.jsx';
 
 function App() {
   return (
-    <div id="container">
-      <h1>What Are People Listening To in ?</h1>
-      <div id="map">
-        <Map />
+    <div id="page">
+      <div id="container">
+        <h1>What Are People Listening To in...?</h1>
+        <div id="map">
+          <Map />
+        </div>
       </div>
     </div>
 
