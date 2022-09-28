@@ -21,6 +21,7 @@ time, mark, audio, video {
 	border: 0;
 	font-size: 100%;
 	font: inherit;
+  font-family: 'Catamaran', sans-serif;
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
@@ -51,14 +52,14 @@ table {
 
 #container {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   background-image: url('https://images.pexels.com/photos/172292/pexels-photo-172292.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
   background-repeat: no-repeat;
   background-position: center;
   background-size: 90vw 100vw;
   height: 100%;
   font-size: 3vw;
-  flex-direction: column;
-  align-items: center;
 }
 #title {
   display: flex;
@@ -68,9 +69,22 @@ table {
   font-size: 4vw;
   width: 70vw;
   height: 6vw;
-  background-color: rgb(178, 226, 226);
+  background-color: rgb(168, 203, 203);
   border: solid .8vw black;
 }
+/* #barAndMap {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+} */
+/* #sideBar {
+  display: fixed;
+  left: 0;
+  background-color: white;
+  height: 100%;
+  width: 10vw;
+} */
 #world-map {
   display: flex;
   flex-direction: column;
@@ -85,7 +99,7 @@ table {
   width: 40vw;
   height: 4vw;
   border: solid .5vw black;
-  background-color: rgb(228, 211, 180);
+  background-color: rgb(217, 208, 192);
 }
 #map {
   display: flex;
@@ -100,6 +114,45 @@ table {
   border: solid 1vw rgb(22, 21, 21);
   border-style: outset;
   /* border: groove 20px rgb(130, 90, 90); */
+}
+#modal {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+#carousel {
+  width: 50vw;
+}
+.css-ohwg9z {
+  width: 50vw;
+}
+#modal-country {
+  display: flex;
+  justify-content: center;
+  font-size: 3.5vw;
+  margin-bottom: .5vw;
+}
+#modal-data {
+  display: flex;
+  font-family: Georgia, serif;
+  flex-direction: column;
+  margin-left: 8vw;
+  margin-bottom: 8vw;
+  font-size: 1.8vw;
+}
+#modal-desc {
+  display: flex;
+  flex-direction: column;
+  margin-left: 8vw;
+  font-size: 1.8vw;
+}
+#modal-button-spotify {
+  background-color: teal;
+  width: 20vw;
+  height: 3vw;
+  margin-top: 1vw;
+  font-size: 1vw;
 }
 #country-name {
   display: flex;

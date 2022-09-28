@@ -10,7 +10,6 @@ app.use(express.json());
 
 app.get('/country/:country', (req, res) => {
   // send country name to controllers to find data
-  console.log(req.params);
   axios.get(`https://musicbrainz.org/ws/2/artist/?query=country:${req.params.country}`)
     .then((response) => res.status(200).send(response.data))
     .catch((err) => res.send(err));
