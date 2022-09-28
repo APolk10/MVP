@@ -7,7 +7,7 @@ function App() {
   return (
     <div id="page">
       <div id="container">
-        <h1>What Are People Listening To in...?</h1>
+        <h1 id="title">What Are People Listening To in...</h1>
         <div id="map">
           <Map />
         </div>

@@ -30,6 +30,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+  background-color: tan;
 }
 ol, ul {
 	list-style: none;
@@ -48,17 +49,43 @@ table {
 }
 
 
-
-/* #page {
-  background-color: brown;
-} */
 #container {
   display: flex;
-  height: 60vw;
-  background-color: rgb(122, 141, 122);
+  background-image: url('https://images.pexels.com/photos/172292/pexels-photo-172292.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 90vw 100vw;
+  height: 100%;
   font-size: 3vw;
   flex-direction: column;
   align-items: center;
+}
+#title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1vw;
+  font-size: 4vw;
+  width: 70vw;
+  height: 6vw;
+  background-color: rgb(178, 226, 226);
+  border: solid .8vw black;
+}
+#world-map {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 4vw;
+  width: 100vw;
+}
+#country-name {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40vw;
+  height: 4vw;
+  border: solid .5vw black;
+  background-color: rgb(228, 211, 180);
 }
 #map {
   display: flex;
@@ -67,10 +94,12 @@ table {
   width: 60vw;
 }
 #map-canvas {
-  width: 65vw;
-  height: 35vw;
-  background-color: rgb(47, 60, 137);
-  border: solid 10px black;
+  width: 60vw;
+  height: 60vh;
+    background: url('https://images.pexels.com/photos/235985/pexels-photo-235985.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  border: solid 1vw rgb(22, 21, 21);
+  border-style: outset;
+  /* border: groove 20px rgb(130, 90, 90); */
 }
 #country-name {
   display: flex;
