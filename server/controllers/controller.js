@@ -1,8 +1,15 @@
 // check the local database for requested information
+const lookup = require('../models/model');
 
-const lookupCountry = (countryName) => {
-  // send a query to the database
-  // if data is found, return promise
-  // if data is not found forward request to models
-  // return model response to index.js
+const incrementCountry = (countryName, iso, num) => (
+  lookup.update(countryName, iso, num)
+);
+
+const findCountry = (countryName) => (
+  lookup.find(countryName)
+);
+
+module.exports = {
+  increment: incrementCountry,
+  find: findCountry,
 };

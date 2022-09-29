@@ -3,7 +3,6 @@ import React from 'react';
 import axios from 'axios';
 import { ComposableMap, Geographies, Geography, ZoomableGroup } from 'react-simple-maps';
 import { Modal, Button, Typography, Box, Link } from '@mui/material';
-// import Carousel from 'react-bootstrap/Carousel';
 import Carousel from 'react-material-ui-carousel';
 
 const getCountryISO2 = require('country-iso-3-to-2');
@@ -46,11 +45,7 @@ function Map() {
   const [country, setCountry] = React.useState(false);
   const [open, setOpen] = React.useState(false);
   const [artists, setArtists] = React.useState([]);
-  // const [currentArtist, setCurrentArtist] = React.useState({});
   const [countryData, setCountryData] = React.useState('USA');
-  // const [lifeSpans, setLifespans] = React.useState('Long');
-  // const [alive, setAliveStatus] = React.useState(true);
-  // const [category, setCategory] = React.useState('');
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -59,15 +54,25 @@ function Map() {
     axios.get(`http://localhost:3001/country/${countryToFind}`)
       .then((response) => {
         console.log(response.data.artists);
-        // setCurrentArtist(response.data.artists[0]);
         setArtists(response.data.artists);
-        // setAliveStatus(response.data.artists[0]['life-span'].ended);
-        // // setCategory(response.data.artists[0].tags[0].name || '');
         setCountryData(`Country Name: ${response.data.artists[0].area.name}`);
-        // setLifespans('Born: ' + response.data.artists[0]['life-span'].begin);
       })
       .then(() => { handleOpen(); })
       .catch((error) => console.log(error));
+  };
+
+  const fetchLastCountryNumbers = (countryToFind) => {
+    axios.get(`http://localhost:3001/numbers/${countryToFind}`)
+      .then((response) => {
+        console.log(response);
+      });
+  };
+
+  const updateCountryMeta = (countryName, iso) => {
+    axios.post('http://localhost:3001/clicker', { country: countryName, isoStr: iso })
+      .then(() => console.log('numbers updated'))
+      .catch((err) => console.log(err));
+    console.log('hi');
   };
 
   const handleCountryClick = (e) => {
@@ -75,6 +80,8 @@ function Map() {
     const currentCountryISO = getCountryISO2(e.target.getAttribute('iso'));
     setCountry(currentCountry);
     fetchCountryData(currentCountryISO);
+    updateCountryMeta(currentCountry, currentCountryISO);
+    fetchLastCountryNumbers(currentCountry);
   };
 
   return (
