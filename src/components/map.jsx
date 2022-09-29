@@ -43,6 +43,7 @@ const mapURL = 'https://raw.githubusercontent.com/deldersveld/topojson/master/wo
 function Map() {
   const [geoURL] = React.useState(mapURL);
   const [country, setCountry] = React.useState(false);
+  const [count, setCount] = React.useState(0);
   const [open, setOpen] = React.useState(false);
   const [artists, setArtists] = React.useState([]);
   const [countryData, setCountryData] = React.useState('USA');
@@ -63,9 +64,8 @@ function Map() {
 
   const fetchLastCountryNumbers = (countryToFind) => {
     axios.get(`http://localhost:3001/numbers/${countryToFind}`)
-      .then((response) => {
-        console.log(response);
-      });
+      .then((response) => setCount(response.data.val))
+      .catch((response) => setCount(response.data.val));
   };
 
   const updateCountryMeta = (countryName, iso) => {
@@ -80,8 +80,8 @@ function Map() {
     const currentCountryISO = getCountryISO2(e.target.getAttribute('iso'));
     setCountry(currentCountry);
     fetchCountryData(currentCountryISO);
-    updateCountryMeta(currentCountry, currentCountryISO);
     fetchLastCountryNumbers(currentCountry);
+    updateCountryMeta(currentCountry, currentCountryISO);
   };
 
   return (
@@ -116,8 +116,11 @@ function Map() {
               {artists.map((artist) => (
 
                 <Typography key={artist.id} id="modal-modal-title" variant="h6" component="h2">
-                  <p id="modal-country">{country}</p>
+                  <p id="modal-country">
+                    {country}
+                  </p>
                   <ul id="modal-data">
+                    <li>{`Popularity by user clicks: ${count}`}</li>
                     <li>{artist['sort-name'] ? `English Name: ${artist['sort-name']}` : 'no data'}</li>
                     <li>{artist.name ? `Local Name: ${artist.name}` : 'no data'}</li>
                     <li>{countryData}</li>
